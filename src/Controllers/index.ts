@@ -25,9 +25,9 @@ export const handleSTKPush = async (req: RequestExtended, res: Response): Promis
         "PartyA": phone,
         "PartyB": process.env.MPESA_SHORTCODE,
         "PhoneNumber": phone,
-        "CallBackURL": process.env.CALLBACK_URL,
-        "AccountReference": "Test",
-        "TransactionDesc": "Test"
+        "CallBackURL": "https://d444-102-215-13-119.ngrok-free.app/api/callback",
+        "AccountReference": "E-buy Store",
+        "TransactionDesc": "Payment for goods purchased"
     };
 
     try {

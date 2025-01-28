@@ -2,6 +2,7 @@ import express, { Request, Response } from 'express';
 import cors from 'cors';
 import dotenv from 'dotenv';
 import router from './Routes';
+import mongoose from 'mongoose';  
 
 dotenv.config();
 const app = express();
@@ -14,6 +15,10 @@ app.get('/', (req: Request, res: Response) => {
 });
 
 app.use('/api', router);
+
+mongoose.connect(process.env.DATABASE_URL as string, {})
+.then(() => console.log('Connected to the database'))
+.catch((err) => console.error('Database connection error:', err));
 
 app.listen(process.env.PORT, () => {
   console.log(`Server is running on port http://localhost:${process.env.PORT}`);
