@@ -25,7 +25,7 @@ export const handleSTKPush = async (req: RequestExtended, res: Response): Promis
         "PartyA": phone,
         "PartyB": process.env.MPESA_SHORTCODE,
         "PhoneNumber": phone,
-        "CallBackURL": "https://d444-102-215-13-119.ngrok-free.app/api/callback",
+        "CallBackURL": process.env.CALLBACK_URL,
         "AccountReference": "E-buy Store",
         "TransactionDesc": "Payment for goods purchased"
     };
@@ -39,13 +39,15 @@ export const handleSTKPush = async (req: RequestExtended, res: Response): Promis
         });
         res.status(201).json({
             message: "Request sent successfully.",
-            data: response.data
+            data: response.data,
+            status: "success"
         });
     } catch (error: any) {
         console.error("STK Push Error:", error.response?.data || error.message);
         res.status(500).json({
             message: "An error occurred while processing the request.",
             error: error.response?.data || error.message,
+            status: "error"
         });
     }
 };

@@ -1,0 +1,30 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Roboto', sans-serif;
+}
+.container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    min-height: 100vh;
+}
+.form input{
+    padding: 10px;
+    margin: 5px;
+    border: 1px #ccc solid;
+    outline: none;
+    border-radius: 5px;
+}
+.form button{
+    padding: 10px;
+    margin: 5px;
+    border: none;
+    outline: none;
+    border-radius: 5px;
+    background-color: #333;
+    color: #fff;
+    cursor: pointer;
+}
