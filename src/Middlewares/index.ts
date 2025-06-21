@@ -18,6 +18,7 @@ export const generateToken = async (req: RequestExtended, res: Response, next: N
         })
         req.token = response.data.access_token;    
         next();
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     } catch (error: any) {
         throw new Error(error.message);
     }};

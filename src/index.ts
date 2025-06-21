@@ -1,7 +1,8 @@
+// import 'tsconfig-paths/register';
 import express, { Request, Response } from 'express';
 import cors from 'cors';
 import dotenv from 'dotenv';
-import router from './Routes';
+import router from './Routes/index.ts';
 import mongoose from 'mongoose';  
 
 dotenv.config();
@@ -13,7 +14,7 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.static('public'));
 
 app.get('/', (req: Request, res: Response) => {
-  res.send('Hello World');
+  res.send('Welcome to M-pesa STK push');
 });
 
 app.use('/api', router);

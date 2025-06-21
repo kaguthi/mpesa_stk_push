@@ -1,20 +1,34 @@
 import {Request, Response} from 'express';
-import mpesaSchema from '../Models/index';
+import mpesaSchema from '../Models/index.ts';
 
 export const callBack = async (req: Request, res: Response): Promise<void> => {
-    const result_code = req.body.Body.stkCallback.ResultCode;
-    if (result_code !== 0) {
-        console.error('STK Push failed:', req.body.Body.stkCallback.ResultDesc);
-        res.status(400).send('STK Push failed.');
-    } else {
-        const data = req.body.Body.stkCallback.CallbackMetadata.Item;
-        const mpesaDetails ={
-            Amount: data[0].Value,
-            MpesaReceiptNumber: data[1].Value,
-            TransactionDate: data[3].Value,
-            PhoneNumber: data[4].Value
+    try {
+        const stkCallback = req.body?.Body?.stkCallback;
+        if (!stkCallback) {
+            res.status(400).json({ message: "Invalid data"});
+        }
+
+        const resultCode = stkCallback.ResultCode;
+        if (resultCode !== 0) {
+            console.error('STK Push failed:', req.body.Body.stkCallback.ResultDesc);
+            res.status(400).send('STK Push failed.');
+        }
+
+        const data = stkCallback.CallbackMetadata?.Item;
+        if (!data || data.length < 5) {
+            res.status(400).json({ message: "Invalid data" });
+        }
+        const mpesaDetails = {
+            Amount: data[0]?.value ?? 0,
+            MpesaReceiptNumber: data[1]?.Value ?? 'N/A',
+            TransactionDate: data[3]?.Value ?? 'Unknown',
+            PhoneNumber: data[4]?.Value ?? 'Unknown',
         }
         const mpesa = await mpesaSchema.create(mpesaDetails);
-        res.status(200).json({ message: 'Callback received successfully.', data });
+        res.status(200).json({ message: 'Callback received successfully.', data: mpesa });
+
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    } catch (error: any) {
+        res.status(500).json({ message: error.message });
     }
 };

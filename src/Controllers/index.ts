@@ -1,7 +1,7 @@
 import axios from 'axios';
 import { Response } from 'express';
-import { timestamp } from "../../utils/timeStamp";
-import { RequestExtended } from "../Middlewares/index";
+import { timestamp } from "../utils/timeStamp.ts";
+import { RequestExtended } from "../Middlewares/index.ts";
 
 export const handleSTKPush = async (req: RequestExtended, res: Response): Promise<void> => {
     const { phone, amount } = req.body;
@@ -42,6 +42,7 @@ export const handleSTKPush = async (req: RequestExtended, res: Response): Promis
             data: response.data,
             status: "success"
         });
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     } catch (error: any) {
         console.error("STK Push Error:", error.response?.data || error.message);
         res.status(500).json({
