@@ -1,7 +1,7 @@
 import axios from 'axios';
 import { Response } from 'express';
-import { timestamp } from "../utils/timeStamp.ts";
-import { RequestExtended } from "../Middlewares/index.ts";
+import { timestamp } from "../utils/timeStamp";
+import { RequestExtended } from "../Middlewares/index";
 
 export const handleSTKPush = async (req: RequestExtended, res: Response): Promise<void> => {
     const { phone, amount } = req.body;

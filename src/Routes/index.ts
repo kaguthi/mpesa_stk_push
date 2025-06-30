@@ -1,9 +1,9 @@
 import express from 'express';
-import { handleSTKPush } from '../Controllers/index.ts';
-import { generateToken } from '../Middlewares/index.ts';
-import { callBack } from '../Controllers/callBack.ts';
-import { getPaymentDetails } from '../Controllers/paymentDetails.ts'
-import { createTodo, getTodos } from '../Controllers/todo.ts';
+import { handleSTKPush } from '../Controllers/index';
+import { generateToken } from '../Middlewares/index';
+import { callBack } from '../Controllers/callBack';
+import { getPaymentDetails } from '../Controllers/paymentDetails'
+import { createTodo, getTodos } from '../Controllers/todo';
 
 const router = express.Router();
 

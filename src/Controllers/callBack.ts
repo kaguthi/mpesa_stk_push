@@ -1,5 +1,5 @@
 import {Request, Response} from 'express';
-import mpesaSchema from '../Models/index.ts';
+import mpesaSchema from '../Models/index';
 
 export const callBack = async (req: Request, res: Response): Promise<void> => {
     try {

@@ -1,5 +1,5 @@
 import { Request, Response } from 'express';
-import mpesaSchema from '../Models/index.ts';
+import mpesaSchema from '../Models/index';
 
 export const getPaymentDetails = async (req: Request, res: Response) => {
     try {

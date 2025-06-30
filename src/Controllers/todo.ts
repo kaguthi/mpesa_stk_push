@@ -1,5 +1,5 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import todoSchema from '../Models/todo.ts';
+import todoSchema from '../Models/todo';
 import { Request, Response } from 'express';
 
 export const getTodos = async (req: Request, res: Response) => {
