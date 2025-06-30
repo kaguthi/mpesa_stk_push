@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { timestamp } from "../utils/timeStamp";
+import { timestamp } from "../utils/timeStamp.js";
 export const handleSTKPush = async (req, res) => {
     const { phone, amount } = req.body;
     if (!phone || !amount) {

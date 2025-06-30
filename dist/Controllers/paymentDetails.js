@@ -1,4 +1,4 @@
-import mpesaSchema from '../Models/index';
+import mpesaSchema from '../Models/index.js';
 export const getPaymentDetails = async (req, res) => {
     try {
         const paymentDetails = await mpesaSchema.find();

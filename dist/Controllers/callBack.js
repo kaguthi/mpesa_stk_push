@@ -1,4 +1,4 @@
-import mpesaSchema from '../Models/index';
+import mpesaSchema from '../Models/index.js';
 export const callBack = async (req, res) => {
     try {
         const stkCallback = req.body?.Body?.stkCallback;

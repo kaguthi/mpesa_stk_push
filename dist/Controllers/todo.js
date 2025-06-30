@@ -1,5 +1,5 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import todoSchema from '../Models/todo';
+import todoSchema from '../Models/todo.js';
 export const getTodos = async (req, res) => {
     try {
         const todos = await todoSchema.find();

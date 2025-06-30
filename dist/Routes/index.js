@@ -1,9 +1,9 @@
 import express from 'express';
-import { handleSTKPush } from '../Controllers/index';
-import { generateToken } from '../Middlewares/index';
-import { callBack } from '../Controllers/callBack';
-import { getPaymentDetails } from '../Controllers/paymentDetails';
-import { createTodo, getTodos } from '../Controllers/todo';
+import { handleSTKPush } from '../Controllers/index.js';
+import { generateToken } from '../Middlewares/index.js';
+import { callBack } from '../Controllers/callBack.js';
+import { getPaymentDetails } from '../Controllers/paymentDetails.js';
+import { createTodo, getTodos } from '../Controllers/todo.js';
 const router = express.Router();
 router.post('/stk-push', generateToken, handleSTKPush);
 router.post('/callback', callBack);
