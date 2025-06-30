@@ -1,3 +1,4 @@
+/* eslint-disable no-undef */
 const phoneInput = document.getElementById('phone')
     amountInput = document.getElementById('amount')
     submitBtn = document.getElementById('submit')
@@ -19,7 +20,8 @@ submitBtn.addEventListener('click', async (e) => {
     const res = await response.json();
     if (res.status === 'success') {
         alert('Payment request sent successfully')
+        form.reset();
     } else {
-        alert("An Error occurred due to" + JSON.stringify(res.error))
+        alert("An Error occurred due to" + JSON.stringify(res.error.errorMessage))
     }
 })
