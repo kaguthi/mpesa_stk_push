@@ -5,13 +5,11 @@
     "moduleResolution": "Node",
     "esModuleInterop": true,
     "moduleDetection": "force",
-    "allowImportingTsExtensions": true,
     "outDir": "dist",
     "rootDir": "src",
     "strict": true,
     "allowSyntheticDefaultImports": true,
     "resolveJsonModule": true,
-    "noEmit": true
   },
   "ts-node": {
     "esm": true

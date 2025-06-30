@@ -3,13 +3,14 @@ const phoneInput = document.getElementById('phone')
     amountInput = document.getElementById('amount')
     submitBtn = document.getElementById('submit')
     form = document.getElementById('form')
+    host = window.location.origin;
 
 submitBtn.addEventListener('click', async (e) => {
     e.preventDefault()
     const phone = phoneInput.value
     const amount = amountInput.value
     const data = { phone, amount }
-    const response = await fetch('http://localhost:5000/api/stk-push', {
+    const response = await fetch(`${host}/api/stk-push`, {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'

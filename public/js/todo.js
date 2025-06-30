@@ -3,6 +3,7 @@ const title =document.querySelector('#title');
 const description = document.querySelector('#description');
 const submitBtn = document.querySelector('#submit');
 const form = document.querySelector('#form');
+const host = window.location.origin;
 
 submitBtn.addEventListener('click', async (e) => {
     e.preventDefault();
@@ -10,7 +11,7 @@ submitBtn.addEventListener('click', async (e) => {
     const descriptionValue = description.value;
     const data = { title: titleValue, description: descriptionValue };
     
-    const response = await fetch('http://localhost:5000/api/todo', {
+    const response = await fetch(`${host}/api/todo`, {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'
